@@ -1,0 +1,29 @@
+### Greeting
+GET http://localhost:8081/students/greeting
+
+### findById
+GET http://localhost:8081/students/29389884561241818130181243114
+
+### findAll
+GET http://localhost:8081/students
+
+### findBySubjectName
+GET http://localhost:8081/students/subjects/Math
+
+### join
+POST http://localhost:8081/students
+Content-Type: application/json
+
+{"name": "Mario", "majorSubject": "Math"}
+
+### modify
+PUT http://localhost:8081/students/4
+Content-Type: application/json
+
+{"name": "Cart", "majorSubject":  "Machine Learning"}
+
+### validation modification
+GET http://localhost:8081/students/4
+
+### delete
+DELETE http://localhost:8081/students/29389884561241818130181243114
