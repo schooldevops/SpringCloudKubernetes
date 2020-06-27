@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mysql
+  name: mysql-service
+spec:
+  type: NodePort
+  ports:
+    - name: "http"
+      port: 3306
+      protocol: TCP
+      targetPort: 3306
+  selector:
+    service: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        service: mysql
+      name: mysql-service
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.6
+          ports:
+            - containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-db-secret
+                  key: rootpasswd
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-db-secret
+                  key: username
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-db-secret
+                  key: password
+          volumeMounts:
+            - mountPath: /data/mysqldb
+              name: mysqldb-data
+      volumes:
+        - name: mysqldb-data
+          persistentVolumeClaim:
+            claimName: mysqldb-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysqldb-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /tmp/mysqldb
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysqldb-pvc
+spec:
+  resources:
+    requests:
+      storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      name: mysqldb-pv

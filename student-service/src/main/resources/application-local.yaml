@@ -20,11 +20,11 @@ spring:
         name: db-secret
   data:
     mongodb:
-      host: mongodb-service
-      port: 27017
+      host: localhost
+      port: 31418
       database: admin
-      username: ${MONGO_USERNAME}
-      password: ${MONGO_PASSWORD}
+      username: kido
+      password: 1234qwer
 
 # Spring Actuator Management Endpoint config
 management:

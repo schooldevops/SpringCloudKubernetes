@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mongo
+  name: mongodb-service
+spec:
+  type: NodePort
+  ports:
+    - name: "http"
+      port: 27017
+      protocol: TCP
+      targetPort: 27017
+  selector:
+    service: mongo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: mongo
+  template:
+    metadata:
+      labels:
+        service: mongo
+      name: mongodb-service
+    spec:
+      containers:
+        - name: mongo
+          image: mongo:latest
+          args:
+            - mongod
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: password
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongodb-data
+      volumes:
+        - name: mongodb-data
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /tmp/mongodb
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  resources:
+    requests:
+      storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  selector:
+    matchLabels:
+      name: mongodb-pv

@@ -18,9 +18,9 @@ spring:
         enable: true
       secrets: mysql-db-secret
   datasource:
-    url: jdbc:mysql://localhost:3306/professor?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
-    username: ${MYSQL_USERNAME}
-    password: ${MYSQL_PASSWORD}
+    url: jdbc:mysql://localhost:31552/professor?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+    username: kido
+    password: 1234qwer
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
