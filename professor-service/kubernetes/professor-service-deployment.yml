@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: professor-service
+spec:
+  type: NodePort
+  selector:
+    app: professor-service
+  ports:
+    - protocol: TCP
+      port: 8181
+      nodePort: 30181
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: professor-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: professor-service
+  template:
+    metadata:
+      labels:
+        app: professor-service
+    spec:
+      containers:
+        - name: professor-service
+          image: unclebae/professor-service:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8181
+          env:
+            - name: MYSQL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-db-secret
+                  key: username
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-db-secret
+                  key: password

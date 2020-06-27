@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8181
 
 spring:
   application:
@@ -18,7 +18,7 @@ spring:
         enable: true
       secrets: mysql-db-secret
   datasource:
-    url: jdbc:mysql://localhost:3306/professor?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://mysql-service:3306/professor?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
     username: ${MYSQL_USERNAME}
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
