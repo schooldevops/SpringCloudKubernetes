@@ -1,0 +1,12 @@
+### Get Server Lists
+GET http://localhost:30281/servers
+
+### getAllStudents
+GET http://localhost:30281/students
+
+### findEducationByMajorSubject
+GET http://localhost:30281/education/Math
+
+### findBySubjectName
+GET http://localhost:30281/feign/students
+

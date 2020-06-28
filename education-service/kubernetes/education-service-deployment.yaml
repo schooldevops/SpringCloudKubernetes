@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: education-service
+spec:
+  selector:
+    app: education-service
+  ports:
+    - protocol: TCP
+      port: 8281
+      nodePort: 30281
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: education-service
+spec:
+  selector:
+    matchLabels:
+      app: education-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: education-service
+    spec:
+      containers:
+        - name: education-service
+          image: unclebae/education-service:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8281
