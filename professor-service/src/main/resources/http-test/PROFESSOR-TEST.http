@@ -1,32 +1,32 @@
 ### Greeting
-GET http://localhost:8181/professors/greeting
+GET http://localhost:8181/api/professors/greeting
 
 ### findById
-GET http://localhost:8181/professors/1
+GET http://localhost:8181/api/professors/1
 
 ### findAll
-GET http://localhost:8181/professors
+GET http://localhost:8181/api/professors
 
 ### findAll to kubernetes
-GET http://localhost:30181/professors
+GET http://localhost:30181/api/professors
 
 ### findBySubjectName
-GET http://localhost:8181/professors/subjects/Math
+GET http://localhost:8181/api/professors/subjects/Math
 
 ### join
-POST http://localhost:8181/professors
+POST http://localhost:8181/api/professors
 Content-Type: application/json
 
 {"name": "Mario", "majorSubject": "Math"}
 
 ### modify
-PUT http://localhost:8181/professors/4
+PUT http://localhost:8181/api/professors/4
 Content-Type: application/json
 
 {"name": "Cart", "majorSubject":  "Machine Learning"}
 
 ### validation modification
-GET http://localhost:8181/professors/4
+GET http://localhost:8181/api/professors/4
 
 ### delete
-DELETE http://localhost:8181/professors/4
+DELETE http://localhost:8181/api/professors/4

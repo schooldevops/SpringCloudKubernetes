@@ -10,7 +10,7 @@ import java.util.List;
 @FeignClient(name="student-service", url = "http://student-service:8081")
 public interface StudentService {
 
-    @RequestMapping(value = "/students", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/students", method = RequestMethod.GET)
     List<Student> getAllStudents();
 
 }

@@ -11,15 +11,15 @@ spec:
     - host: education.kr
       http:
         paths:
-          - path: /students
+          - path: /api/students
             backend:
               serviceName: student-service
               servicePort: 8081
-          - path: /professors
+          - path: /api/professors
             backend:
               serviceName: professor-service
               servicePort: 8181
-          - path: /educations
+          - path: /api/educations
             backend:
               serviceName: education-service
               servicePort: 8281

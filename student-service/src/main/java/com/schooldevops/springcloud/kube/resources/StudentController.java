@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Slf4j
 @RestController
-@RequestMapping("students")
+@RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired

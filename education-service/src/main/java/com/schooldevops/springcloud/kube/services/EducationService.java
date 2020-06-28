@@ -30,7 +30,7 @@ public class EducationService {
     }
 
     public List<Student> getAllStudents() {
-        ResponseEntity<List<Student>> exchange = this.restTemplate.exchange("http://student-service:8081/students", HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
+        ResponseEntity<List<Student>> exchange = this.restTemplate.exchange("http://student-service:8081/api/students", HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
         });
 
         log.info("Eschange Infos: " + exchange.getBody());
@@ -50,7 +50,7 @@ public class EducationService {
     }
 
     private List<Student> getStudentsByMajorSubject(String majorSubject) {
-        ResponseEntity<List<Student>> exchange = this.restTemplate.exchange("http://student-service:8081/students/subjects/" + majorSubject, HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
+        ResponseEntity<List<Student>> exchange = this.restTemplate.exchange("http://student-service:8081/api/students/subjects/" + majorSubject, HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
         });
 
         log.info("Eschange Student Infos: " + exchange.getBody());
@@ -60,7 +60,7 @@ public class EducationService {
 
 
     private List<Professor> getProfessorsByMajorSubject(String majorSubject) {
-        ResponseEntity<List<Professor>> exchange = this.restTemplate.exchange("http://professor-service:8181/professors/subjects/" + majorSubject, HttpMethod.GET, null, new ParameterizedTypeReference<List<Professor>>() {
+        ResponseEntity<List<Professor>> exchange = this.restTemplate.exchange("http://professor-service:8181/api/professors/subjects/" + majorSubject, HttpMethod.GET, null, new ParameterizedTypeReference<List<Professor>>() {
         });
 
         log.info("Eschange Professor Infos: " + exchange.getBody());

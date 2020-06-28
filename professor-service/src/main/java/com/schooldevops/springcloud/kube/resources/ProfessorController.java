@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
 
 @Slf4j
 @RestController
-@RequestMapping("/professors")
+@RequestMapping("/api/professors")
 public class ProfessorController {
 
     private final ProfessorRepository professorRepository;
