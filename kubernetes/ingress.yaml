@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: education-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: education.kr
+      http:
+        paths:
+          - path: /students
+            backend:
+              serviceName: student-service
+              servicePort: 8081
+          - path: /professors
+            backend:
+              serviceName: professor-service
+              servicePort: 8181
+          - path: /educations
+            backend:
+              serviceName: education-service
+              servicePort: 8281

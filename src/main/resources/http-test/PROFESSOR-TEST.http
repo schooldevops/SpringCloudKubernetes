@@ -1,0 +1,32 @@
+### students
+GET http://localhost:80/api/students
+
+### findById
+GET http://localhost:8181/professors/1
+
+### findAll
+GET http://localhost:8181/professors
+
+### findAll to kubernetes
+GET http://localhost:30181/professors
+
+### findBySubjectName
+GET http://localhost:8181/professors/subjects/Math
+
+### join
+POST http://localhost:8181/professors
+Content-Type: application/json
+
+{"name": "Mario", "majorSubject": "Math"}
+
+### modify
+PUT http://localhost:8181/professors/4
+Content-Type: application/json
+
+{"name": "Cart", "majorSubject":  "Machine Learning"}
+
+### validation modification
+GET http://localhost:8181/professors/4
+
+### delete
+DELETE http://localhost:8181/professors/4
