@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: education-service
+data:
+  application.properties: |-
+    education.message=Education service up...

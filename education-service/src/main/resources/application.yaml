@@ -20,3 +20,9 @@ ribbon:
   http:
     client:
       enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
