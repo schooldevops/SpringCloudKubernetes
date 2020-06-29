@@ -31,3 +31,15 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 8281
+          livenessProbe:
+            httpGet:
+              port: 8281
+              path: /actuator/health/liveness
+            initialDelaySeconds: 15
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              port: 8281
+              path: /actuator/health/readiness
+            initialDelaySeconds: 15
+            timeoutSeconds: 1
