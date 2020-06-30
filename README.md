@@ -96,14 +96,12 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
     - Kubernetes Deployment
     - Kubernetes Service
     - Kubernetes Deploy Student-Service
-    - Basic Kubernetes Operation with Kubectl
     
 - ProfessorService
     - Professor-Service Project Overview
     - 소스 구조
     - SpringCloud 의존성 설정하기
     - Professor-Service Packaging and Dockerizing (공통)
-    - Professor-Service with MysqlDB
     - Kubernetes Deploy MysqlDB
     - Kubernetes Deploy Professor-Service
     
@@ -122,4 +120,7 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
 - Ingress 
     - Install Ingress-nginx Controller
     - Set Ingress Rule Setting
+      
+      
+kubectl create clusterrolebinding         admin --clusterrole=cluster-admin --serviceaccount=default:default
       
