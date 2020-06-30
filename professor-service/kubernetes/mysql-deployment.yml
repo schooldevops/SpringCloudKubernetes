@@ -11,6 +11,7 @@ spec:
       port: 3306
       protocol: TCP
       targetPort: 3306
+      nodePort: 30306
   selector:
     service: mysql
 ---
@@ -68,7 +69,7 @@ metadata:
   name: mysqldb-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 100Mi
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany

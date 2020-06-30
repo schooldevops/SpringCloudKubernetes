@@ -1,0 +1,41 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: zipkin-service
+spec:
+  selector:
+    app: zipkin-service
+  ports:
+    - protocol: TCP
+      port: 9411
+      nodePort: 30411
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin-service
+spec:
+  selector:
+    matchLabels:
+      app: zipkin-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zipkin-service
+    spec:
+      containers:
+        - name: zipkin-service
+          image: openzipkin/zipkin:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9411
+#          env:
+#            - name: STORAGE_TYPE
+#              value: elasticsearch
+#            - name: ES_HOSTS
+#              value: http://elasticsearch:9200
+#            - name: ES_HTTP_LOGGING
+#              value: BASIC
+

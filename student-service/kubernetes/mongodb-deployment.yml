@@ -60,7 +60,7 @@ metadata:
   name: mongodb-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 100Mi
   accessModes:
     - ReadWriteOnce
     - ReadOnlyMany

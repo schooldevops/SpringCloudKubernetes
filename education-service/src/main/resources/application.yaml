@@ -6,10 +6,10 @@ spring:
     name: education-service
   sleuth:
     enabled: true
-#    sampler:
-#      probability: 1.0
-#  zipkin:
-#    base-url: http://localhost:9411
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://zipkin-service:9411
 
 # Spring Cloud Kubernetes 연동
   cloud:

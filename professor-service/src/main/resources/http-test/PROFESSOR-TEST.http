@@ -14,7 +14,7 @@ GET http://localhost:30181/api/professors
 GET http://localhost:8181/api/professors/subjects/Math
 
 ### join
-POST http://localhost:8181/api/professors
+POST http://localhost:30181/api/professors
 Content-Type: application/json
 
 {"name": "Mario", "majorSubject": "Math"}

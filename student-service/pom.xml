@@ -80,11 +80,11 @@
 			<version>2.2.3.RELEASE</version>
 		</dependency>
 
-<!--		ZipKin 은 서버가 올라오면 해제하고 작업해준다. -->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-zipkin</artifactId>-->
-<!--		</dependency>-->
+<!--		ZipKin 은 서버가 올라오면 해제하고 작업해준다.-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
