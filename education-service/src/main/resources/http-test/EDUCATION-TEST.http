@@ -10,3 +10,5 @@ GET http://localhost:30281/api/educations/education/Math
 ### findBySubjectName
 GET http://localhost:30281/api/educations/feign/students
 
+### findBySubjectName
+GET http://localhost:30281/api/educations/message
