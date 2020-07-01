@@ -85,7 +85,7 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
 
 ## Workshop
 
-- StudentService
+- [StudentService](https://github.com/schooldevops/SpringCloudKubernetes/tree/master/student-service)
     - Student-Service Project Overview
     - 소스 구조
     - SpringCloud 의존성 설정하기
@@ -97,7 +97,7 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
     - Kubernetes Service
     - Kubernetes Deploy Student-Service
     
-- ProfessorService
+- [ProfessorService](https://github.com/schooldevops/SpringCloudKubernetes/tree/master/professor-service)
     - Professor-Service Project Overview
     - 소스 구조
     - SpringCloud 의존성 설정하기
@@ -105,7 +105,7 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
     - Kubernetes Deploy MysqlDB
     - Kubernetes Deploy Professor-Service
     
-- EducationService
+- [EducationService](https://github.com/schooldevops/SpringCloudKubernetes/tree/master/education-service)
     - Education-Service Project Overview
     - 소스 구조
     - SpringCloud 의존성 설정하기
@@ -117,7 +117,8 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
     - Kubernetes with Sleuth
     - Kubernetes with Zipkin
     
-- Ingress 
+- [Ingress](https://github.com/schooldevops/SpringCloudKubernetes/blob/master/README_INGRESS.md)
     - Install Ingress-nginx Controller
     - Set Ingress Rule Setting
-            
+    
+- [Run Kubernetes Commands](https://github.com/schooldevops/SpringCloudKubernetes/blob/master/README_SERVER_RUN.md)
