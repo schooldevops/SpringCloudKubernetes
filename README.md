@@ -120,7 +120,4 @@ SpringCloud 에서 제공하던 도구들중에서 Kubernetes 와 통합하면�
 - Ingress 
     - Install Ingress-nginx Controller
     - Set Ingress Rule Setting
-      
-      
-kubectl create clusterrolebinding         admin --clusterrole=cluster-admin --serviceaccount=default:default
-      
+            

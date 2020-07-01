@@ -404,7 +404,5 @@ Education service up... Change
 
 정상으로 변경되었습니다. 
 
-## Kubernetes with Sleuth
 
-## Kubernetes with Zipkin
 

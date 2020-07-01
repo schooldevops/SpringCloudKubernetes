@@ -1,16 +1,3 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: education-service
-spec:
-  selector:
-    app: education-service
-  ports:
-    - protocol: TCP
-      port: 8281
-      nodePort: 30281
-  type: NodePort
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:

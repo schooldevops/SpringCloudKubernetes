@@ -8,7 +8,7 @@ GET http://localhost:8181/api/professors/1
 GET http://localhost:8181/api/professors
 
 ### findAll to kubernetes
-GET http://localhost:30181/api/professors
+GET http://localhost:30182/api/professors
 
 ### findBySubjectName
 GET http://localhost:8181/api/professors/subjects/Math

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mongo
+  name: mongodb-service
+spec:
+  type: NodePort
+  ports:
+    - name: "http"
+      port: 27017
+      protocol: TCP
+      targetPort: 27017
+      nodePort: 32001
+  selector:
+    service: mongo
